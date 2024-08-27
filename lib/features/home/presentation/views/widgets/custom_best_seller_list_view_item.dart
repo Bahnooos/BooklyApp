@@ -16,7 +16,7 @@ class CustomBestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(bookDetailsView),
+      onTap: () => GoRouter.of(context).push(bookDetailsView,extra: bookModel),
       child: Row(
         children: [
           SizedBox(
