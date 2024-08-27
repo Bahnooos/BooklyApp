@@ -6,6 +6,9 @@ class CustomErrorMessage extends StatelessWidget {
   final String errMessage;
   @override
   Widget build(BuildContext context) {
-    return  Text(errMessage,style: Styles.textStyle16,);
+    return Text(
+      errMessage,
+      style: Styles.textStyle16,
+    );
   }
 }

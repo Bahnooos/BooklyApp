@@ -7,9 +7,7 @@ abstract class Failure {
 }
 
 class ServerFailure extends Failure {
-   ServerFailure({required super.errMessage});
-
-
+  ServerFailure({required super.errMessage});
 
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {

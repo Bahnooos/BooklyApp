@@ -1,13 +1,17 @@
 import 'package:booklyapp/constants.dart';
+import 'package:booklyapp/features/home/data/models/book_model/book_model.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/utils/assets.dart';
+
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class CustomBestSellerListViewItem extends StatelessWidget {
-  const CustomBestSellerListViewItem({super.key});
+  const CustomBestSellerListViewItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +21,7 @@ class CustomBestSellerListViewItem extends StatelessWidget {
         children: [
           SizedBox(
             height: 125,
-            child: AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                height: 150,
-                width: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(MyAssets.testImage),
-                  ),
-                ),
-              ),
-            ),
+            child:CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail)
           ),
           const SizedBox(
             width: 30,
@@ -42,7 +33,7 @@ class CustomBestSellerListViewItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    'Harry Boter and the globel of fire',
+                    bookModel.volumeInfo.title!,
                     style:
                         Styles.textStyle20.copyWith(fontFamily: kGtsectraFine),
                     overflow: TextOverflow.ellipsis,
@@ -52,8 +43,8 @@ class CustomBestSellerListViewItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  'mksnvdkl',
+                 Text(
+                  bookModel.volumeInfo.authors![0],
                   style: Styles.textStyle14,
                 ),
                 const SizedBox(
@@ -62,12 +53,12 @@ class CustomBestSellerListViewItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '19,99 ',
+                      'Free',
                       style: Styles.textStyle20
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const Spacer(),
-                    const BookRating(),
+                     BookRating(rating: bookModel.volumeInfo.averageRating ?? 0, count: bookModel.volumeInfo.ratingsCount ?? 0,),
                   ],
                 )
               ],

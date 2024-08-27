@@ -14,7 +14,8 @@ class CustomSearchListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: CustomBestSellerListViewItem(),
+           // child: CustomBestSellerListViewItem(),
+           child: Text('data'),
           );
         });
   }

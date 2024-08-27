@@ -20,9 +20,12 @@ class CustomListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return  Padding(
-                  padding:const EdgeInsets.symmetric(vertical: 8),
-                  child: CustomBookImage(imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: CustomBookImage(
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
                 );
               },
             ),
