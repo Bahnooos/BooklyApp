@@ -1,8 +1,11 @@
+import 'package:booklyapp/constants.dart';
+
 import 'package:booklyapp/core/widgets/custom_error_message.dart';
 import 'package:booklyapp/core/widgets/custom_indicator.dart';
 import 'package:booklyapp/features/home/presentation/views_model/managers/featured_cubit/featured_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'custom_book_item.dart';
 
@@ -22,9 +25,15 @@ class CustomListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: CustomBookImage(
-                    imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push(bookDetailsView, extra: state.books[index]);
+                    },
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    ),
                   ),
                 );
               },

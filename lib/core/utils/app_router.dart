@@ -1,7 +1,7 @@
 import 'package:booklyapp/constants.dart';
 import 'package:booklyapp/core/utils/service_locator.dart';
 import 'package:booklyapp/features/home/data/models/book_model/book_model.dart';
-import 'package:booklyapp/features/home/data/repos/home_repo.dart';
+
 import 'package:booklyapp/features/home/data/repos/home_repo_implement.dart';
 import 'package:booklyapp/features/home/presentation/views/book_details_view.dart';
 import 'package:booklyapp/features/home/presentation/views/home_view.dart';
