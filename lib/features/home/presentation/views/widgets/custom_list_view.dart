@@ -32,7 +32,7 @@ class CustomListView extends StatelessWidget {
                     },
                     child: CustomBookImage(
                       imageUrl:
-                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                          state.books[index].volumeInfo!.imageLinks!.thumbnail,
                     ),
                   ),
                 );
