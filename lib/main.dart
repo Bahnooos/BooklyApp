@@ -32,6 +32,7 @@ class BooklyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
         theme: ThemeData(
           scaffoldBackgroundColor: myColor,
